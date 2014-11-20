@@ -1,5 +1,5 @@
 SpaceShip suzy;  
-int count = 10AZ0;
+int count = 100;
 Star[] alice =  new Star[count];
 
 

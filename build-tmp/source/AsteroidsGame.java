@@ -15,7 +15,7 @@ import java.io.IOException;
 public class AsteroidsGame extends PApplet {
 
 SpaceShip suzy;  
-int count = 50;
+int count = 100;
 Star[] alice =  new Star[count];
 
 

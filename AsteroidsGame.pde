@@ -4,7 +4,7 @@ Star[] alice =  new Star[count];
 
 
 public void setup() {
-  size(800,800);
+  size(500,500);
   suzy = new SpaceShip();
   for(int i = 0; i<count; i++) {
     alice[i] = new Star();
@@ -30,16 +30,17 @@ public void keyPressed() {
 }
 
 class Star {
-  int myX, myY;
+  int myX, myY, starColor;
 
   public Star() {
-    myX = (int)(Math.random()*800);
-    myY = (int)(Math.random()*800);
+    myX = (int)(Math.random()*500);
+    myY = (int)(Math.random()*500);
+    starColor = color(179,254,239);
   }
 
   public void show() {
     noStroke();
-    fill(255);
+    fill(starColor);
     float angle = TWO_PI / 5;
     float halfAngle = angle/2.0;
     beginShape();
@@ -69,8 +70,8 @@ class SpaceShip extends Floater  {
     yCorners[2] = 0;
 
     myColor = color(255);
-    myCenterX = 400;
-    myCenterY = 400;
+    myCenterX = 250;
+    myCenterY = 250;
     myPointDirection = 180;
 
   }

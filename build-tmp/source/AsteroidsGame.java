@@ -18,7 +18,8 @@ SpaceShip suzy;
 int count = 100;
 int amt = 5;
 Star[] alice =  new Star[count];
-Assteroid[] dill = new Assteroid[amt];
+ArrayList <Assteroid> dill = new ArrayList <Assteroid>();
+
 
 
 public void setup() {
@@ -27,8 +28,8 @@ public void setup() {
   for(int i = 0; i<count; i++) {
     alice[i] = new Star();
   }
-  for(int x = 0; x<amt; x++) {
-    dill[x] = new Assteroid();
+  for (int x = 0; x<amt; x++) {
+    dill.add(new Assteroid());
   }
 
 }
@@ -41,9 +42,15 @@ public void draw() {
     alice[i].show();
   }
 
-  for(int x = 0; x<amt; x++) {
-    dill[x].show();
-    dill[x].move();
+  for(int x = 0; x<dill.size(); x++) {
+    dill.get(x).show();
+    dill.get(x).move();
+  }
+
+  for (int x = 0; x < dill.size(); x++) {
+    if (dist(dill.get(x).getX(), dill.get(x).getY(), suzy.getX(), suzy.getY()) <= 30) {
+      dill.remove(x);
+    }
   }
 
 }

@@ -3,7 +3,7 @@ int count = 100;
 int amt = 5;
 Star[] alice =  new Star[count];
 ArrayList <Assteroid> dill = new ArrayList <Assteroid>();
-
+Bullet ollie;
 
 
 public void setup() {
@@ -15,6 +15,7 @@ public void setup() {
   for (int x = 0; x<amt; x++) {
     dill.add(new Assteroid());
   }
+  ollie = new Bullet(suzy);
 
 }
 public void draw() {
@@ -36,6 +37,7 @@ public void draw() {
       dill.remove(x);
     }
   }
+  ollie.show();
 
 }
 
@@ -159,6 +161,34 @@ class Assteroid extends Floater {
   public double getDirectionY() {return myDirectionY;}   
   public void setPointDirection(int degrees) {myPointDirection = degrees;}   
   public double getPointDirection() {return myPointDirection;}
+}
+
+class Bullet estends Floater {
+  public Bullet(Spaceship theShip) {
+    myCenterX = theShip.getX();
+    myCenterY = theShip.getY();
+    myPointDirection = theShip.getPointDirection();
+    double dRadians = myPointDirection*(Math.PI/180);
+    myDirectionX = 5*Math.cos(dRadians) + theShip.getDirectionX();
+    myDirectionY = 5*Math.sin(dRadians) + theShip.getDirectionY();
+  }
+
+  public void setX(int x) {myCenterX = x;}
+  public int getX() {return (int)myCenterX;}   
+  public void setY(int y) {myCenterY = y;}   
+  public int getY() {return (int)myCenterY;}   
+  public void setDirectionX(double x) {myDirectionX = x;}    
+  public double getDirectionX() {return myDirectionX;}   
+  public void setDirectionY(double y) {myDirectionY = y;}   
+  public double getDirectionY() {return myDirectionY;}   
+  public void setPointDirection(int degrees) {myPointDirection = degrees;}   
+  public double getPointDirection() {return myPointDirection;}
+
+  public void show() {
+    fill(132,255,0);
+    ellipse((float)myCenterX,(float)myCenterY,5,5);
+  }
+
 }
 
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 

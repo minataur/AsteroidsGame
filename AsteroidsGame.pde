@@ -3,12 +3,9 @@ int count = 100;
 int amt = 5;
 Star[] alice =  new Star[count];
 ArrayList <Assteroid> dill = new ArrayList <Assteroid>();
-<<<<<<< HEAD
-Bullet ollie;
-=======
 ArrayList <Bullet> ollie = new ArrayList <Bullet>();
 
->>>>>>> origin/gh-pages
+
 
 public void setup() {
   size(500,500);
@@ -209,14 +206,12 @@ class Bullet estends Floater {
     fill(132,255,0);
     ellipse((float)myCenterX,(float)myCenterY,5,5);
   }
-<<<<<<< HEAD
-=======
-  
+
   public void move() {
     myCenterX += myDirectionX;
     myCenterY += myDirectionY;
   }
->>>>>>> origin/gh-pages
+
 
 }
 

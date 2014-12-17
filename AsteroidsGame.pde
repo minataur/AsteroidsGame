@@ -3,7 +3,12 @@ int count = 100;
 int amt = 5;
 Star[] alice =  new Star[count];
 ArrayList <Assteroid> dill = new ArrayList <Assteroid>();
+<<<<<<< HEAD
 Bullet ollie;
+=======
+ArrayList <Bullet> ollie = new ArrayList <Bullet>();
+
+>>>>>>> origin/gh-pages
 
 public void setup() {
   size(500,500);
@@ -30,10 +35,23 @@ public void draw() {
     dill.get(x).show();
     dill.get(x).move();
   }
+  
+  for (int b = 0; b<ollie.size(); b++) {
+    ollie.get(b).show();
+    ollie.get(b).move();
+  }
 
   for (int x = 0; x < dill.size(); x++) {
     if (dist(dill.get(x).getX(), dill.get(x).getY(), suzy.getX(), suzy.getY()) <= 30) {
       dill.remove(x);
+    }
+  
+    for (int b = 0; x < ollie.size(); b++) {
+      if (dist(dill.get(x).getX(), dill.get(x).getY(), ollie.get(b).getX(), ollie.get(b).getY()) <= 30) {
+        dill.remove(x);
+        ollie.remove(b);
+        break;
+      }
     }
   }
 
@@ -46,6 +64,9 @@ public void keyPressed() {
   else if (keyCode==DOWN) {suzy.accelerate(-0.1);}
   else if (keyCode==RIGHT) {suzy.rotate(20);}
   else if (keyCode==LEFT) {suzy.rotate(-20);}
+  else if (keyCode == 32) {
+    ollie.add(new Bullet(suzy));
+  }
 }
 
 class Star {
@@ -188,6 +209,14 @@ class Bullet estends Floater {
     fill(132,255,0);
     ellipse((float)myCenterX,(float)myCenterY,5,5);
   }
+<<<<<<< HEAD
+=======
+  
+  public void move() {
+    myCenterX += myDirectionX;
+    myCenterY += myDirectionY;
+  }
+>>>>>>> origin/gh-pages
 
 }
 
